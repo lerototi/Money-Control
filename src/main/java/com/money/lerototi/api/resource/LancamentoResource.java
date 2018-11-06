@@ -24,6 +24,7 @@ import com.money.lerototi.api.event.RecursoCriadoEvent;
 import com.money.lerototi.api.excepltionhandle.MoneyExceptionHandler.Erro;
 import com.money.lerototi.api.model.Lancamento;
 import com.money.lerototi.api.repository.LancamentoRepository;
+import com.money.lerototi.api.repository.filter.LancamentoFilter;
 import com.money.lerototi.api.service.LancamentoService;
 import com.money.lerototi.api.service.exception.PessoaInexistenteOuInativaException;
 
@@ -44,10 +45,9 @@ public class LancamentoResource {
 	private MessageSource messageSource;
 	
 	@GetMapping
-	public ResponseEntity<?> listarLancamentos(){
+	public List<Lancamento> pesquisar(LancamentoFilter filter){
 		
-		List<Lancamento> lancamentos = lancamentoRepository.findAll();
-		return lancamentos != null ? ResponseEntity.ok(lancamentos) : ResponseEntity.noContent().build();
+		return lancamentoRepository.filtrar(filter);
 	}
 	
 	@GetMapping("/{codigo}")
