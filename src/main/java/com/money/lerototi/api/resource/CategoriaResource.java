@@ -52,7 +52,7 @@ public class CategoriaResource {
 	
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Categoria> buscarPeloCodigo(@PathVariable Long codigo) {
-		Categoria categoriaRetornada = categoriaRepository.findById(codigo).orElse(null);
+		Categoria categoriaRetornada = categoriaRepository.findOne(codigo);
 		
 		return categoriaRetornada != null ? ResponseEntity.ok(categoriaRetornada) : ResponseEntity.notFound().build();
 	}
@@ -60,7 +60,7 @@ public class CategoriaResource {
 	@DeleteMapping
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void apagarCategoria(@PathVariable Long codigo) {
-		categoriaRepository.deleteById(codigo);
+		categoriaRepository.delete(codigo);
 	}
 	
 	@PutMapping("/{codigo}")
