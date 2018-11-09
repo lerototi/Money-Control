@@ -19,7 +19,6 @@ import org.springframework.util.StringUtils;
 import com.money.lerototi.api.model.Categoria_;
 import com.money.lerototi.api.model.Lancamento;
 import com.money.lerototi.api.model.Lancamento_;
-import com.money.lerototi.api.model.Pessoa;
 import com.money.lerototi.api.model.Pessoa_;
 import com.money.lerototi.api.repository.filter.LancamentoFilter;
 import com.money.lerototi.api.repository.projection.ResumoLancamento;
