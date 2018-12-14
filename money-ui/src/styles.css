@@ -44,3 +44,7 @@ label {
 .col-acoes-header{
   width: 90px;
 }
+
+.buttons-margin{
+  margin-left: 3px;
+}
